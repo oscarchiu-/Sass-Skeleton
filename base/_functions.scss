@@ -1,0 +1,78 @@
+/*
+|--------------------------------------------------------------------------
+| $FUNCTIONS
+|--------------------------------------------------------------------------
+*/
+
+
+/**
+ * Work out powers
+ *
+ * @param $base {integer}
+ * @param $exp  {integer}
+ *
+ * @return      {integer}
+ */
+
+@function pow($base, $exp){
+    $value: $base;
+
+    @if $exp > 1 {
+        @for $i from 2 through $exp {
+            $value: $value * $base;
+        }
+    }
+
+    @if $exp < 1 {
+        @for $i from 0 through -$exp {
+            $value: $value / $base;
+        }
+    }
+
+    @return $value;
+}
+
+
+
+
+
+/**
+ * Strip any units from a value
+ *
+ * @param $value {string}
+ * @return       {integer}
+ */
+
+@function strip-unit($value) {
+    @return $value / ($value * 0 + 1);
+}
+
+
+
+
+
+/**
+ * Double a given number
+ *
+ * @param $num {integer}
+ * @return     {integer}
+ */
+
+@function double($num) {
+    @return $num * 2;
+}
+
+
+
+
+
+/**
+ * Halve a given number
+ *
+ * @param $num {integer}
+ * @return     {integer}
+ */
+
+@function halve($num) {
+    @return $num * .5;
+}

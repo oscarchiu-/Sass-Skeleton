@@ -1,0 +1,18 @@
+/*
+|--------------------------------------------------------------------------
+| $WIDTHS
+|--------------------------------------------------------------------------
+*/
+
+
+@include grid-setup();
+
+@if variable-exists(breakpoints) and 0 < length($breakpoints) {
+
+    @each $breakpoint, $width in $breakpoints {
+
+        @media screen and (min-width: $width) {
+            @include grid-setup("#{$breakpoint}-");
+        }
+    }
+}

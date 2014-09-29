@@ -1,0 +1,24 @@
+/*
+|--------------------------------------------------------------------------
+| $GRID
+|--------------------------------------------------------------------------
+| @link http://bit.ly/1mPqf5W
+*/
+
+
+/**
+ * Does what it says on the tin
+ *
+ * 1. Compensates for padding on grid__unit, creating a nice alignment
+ */
+
+.grid {
+    @extend %clearfix;
+    @include rem(margin, 0 (-$gutter-width));  /* 1 */
+}
+
+    .grid__unit {
+        display: block;
+        float: left;
+        padding: 0 $gutter-width;
+    }

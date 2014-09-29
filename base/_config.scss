@@ -1,0 +1,62 @@
+/*
+|--------------------------------------------------------------------------
+| $CONFIG
+|--------------------------------------------------------------------------
+*/
+
+
+/**
+ * Typography
+ */
+
+$light: 300;
+$regular: 400;
+$bold: 800;
+
+$base-font-size: 16px;
+$base-line-height: 1.45;
+$base-font-stack: sans-serif;
+$base-font-colour: #333;
+$base-font-weight: $regular;
+
+$base-heading-line-height: 1.2;
+$base-heading-font-stack: $base-font-stack;
+$base-heading-font-colour: #434343;
+$base-heading-font-weight: $bold;
+
+$h1-font-size: 2.441rem;
+$h2-font-size: 1.853rem;
+$h3-font-size: 1.563rem;
+$h4-font-size: 1.25rem;
+$h5-font-size: 1rem;
+$h6-font-size: $h5-font-size;
+
+
+
+
+
+/**
+ * Colours
+ */
+
+$white: #fff;
+$brand: #e74c3c;
+
+/* This colour is used for the rgb fallbacks mixin */
+$rgba-background-colour: rgb(127, 127, 127);
+
+
+
+
+
+/**
+ * Structural
+ */
+
+$gutter-width: 18px;
+$half-gutter-width: halve($gutter-width);
+$double-gutter-width: double($gutter-width);
+
+$base-spacing-unit: $base-font-size * $base-line-height;
+$half-spacing-unit: halve($base-spacing-unit);
+$double-spacing-unit: double($base-spacing-unit);

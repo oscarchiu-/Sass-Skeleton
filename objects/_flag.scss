@@ -1,0 +1,88 @@
+/*
+|--------------------------------------------------------------------------
+| $FLAG
+|--------------------------------------------------------------------------
+| Reading and code credit: http://csswizardry.com/2013/05/the-flag-object/
+*/
+
+
+.flag,
+%flag {
+    display: table;
+    width: 100%;
+}
+
+    .flag__image,
+    %flag__image,
+    .flag__body,
+    %flag__body {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .flag__image,
+    %flag__image {
+        @include rem(padding-right, $base-spacing-unit);
+
+        > img {
+            display: block;
+            max-width: none;
+        }
+    }
+
+    .flag__body,
+    %flag__body {
+        width: 100%;
+    }
+
+
+/**
+ * Align the body with the top of the image
+ *
+ * @extends .flag
+ */
+
+.flag--top,
+%flag--top {
+
+    .flag__image,
+    %flag__image,
+    .flag__body,
+    %flag__body {
+        vertical-align: top;
+    }
+}
+
+
+/**
+ * Align the body with the bottom of the image
+ *
+ * @extends .flag
+ */
+
+.flag--bottom,
+%flag--bottom {
+
+    .flag__image,
+    %flag__image,
+    .flag__body,
+    %flag__body {
+        vertical-align: bottom;
+    }
+}
+
+
+/**
+ * Reverse order of image and body components
+ *
+ * @extends .flag
+ */
+
+.flag--rev {
+
+    .flag__image,
+    %flag__image {
+        padding-right: 0;
+        @include rem(padding-left, $base-spacing-unit);
+    }
+}

@@ -1,0 +1,60 @@
+/*
+|--------------------------------------------------------------------------
+| $BOX
+|--------------------------------------------------------------------------
+| Code credit: http://bit.ly/1p4GwXh
+*/
+
+
+/**
+ * Simply for boxing off content
+ *
+ * 1. So we can apply the `.box` class to naturally-inline elements.
+ */
+
+.box,
+%box {
+    @extend %clearfix;
+    display: block;  /* 1 */
+    @include rem(padding, $base-spacing-unit);
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+/**
+ * Content sits flush with box edges
+ *
+ * @extends .box
+ */
+
+.box--flush,
+%box--flush {
+    padding: 0;
+}
+
+
+/**
+ * Leaner padding
+ *
+ * @extends .box
+ */
+
+.box--small,
+%box--small {
+    @include rem(padding, halve($base-spacing-unit));
+}
+
+
+/**
+ * Extra padding
+ *
+ * @extends .box
+ */
+
+.box--large,
+%box--large {
+    @include rem(padding, double($base-spacing-unit));
+}
