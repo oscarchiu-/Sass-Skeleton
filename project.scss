@@ -8,9 +8,9 @@
  * CONTENTS     ......  You're reading it!
  * IMPORTS      ......  Import our files, outlined below
  *
- * CONFIG       ......  Project settings
- * MIXINS       ......
  * FUNCTIONS    ......
+ * MIXINS       ......
+ * CONFIG       ......  Project settings
  *
  * CLEARFIX     ......
  *
@@ -41,9 +41,9 @@
 |--------------------------------------------------------------------------
 */
 
-@import 'base/config';
-@import 'base/mixins';
 @import 'base/functions';
+@import 'base/mixins';
+@import 'base/config';
 
 @import 'generic/clearfix';
 
