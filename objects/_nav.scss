@@ -20,11 +20,13 @@
        <li><a href=#>Contact</a></li>
    </ul>
  *
+ * 1. Make sure we take away any identation that may be applied to lists
  */
 
 .nav {
     list-style: none;
-    margin-left: 0;
+    margin-left: 0;   /* 1 */
+    padding-left: 0;  /* 1 */
 
     > li {
 
