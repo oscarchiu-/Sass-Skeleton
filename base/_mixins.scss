@@ -231,3 +231,40 @@
     .#{$namespace}ten-twelfths      { @extend .#{$namespace}five-sixths; }
     .#{$namespace}eleven-twelfths   { width:91.666%; }
 }
+
+
+
+
+
+/**
+ * Mixin to setup our type-scale
+ *
+ * Based upon the type mixin in https://github.com/kenwheeler/guff
+ */
+
+@mixin type() {
+    $h4-size: round($base-font-size * $base-type-scale);
+    $h3-size: round($h4-size * $base-type-scale);
+    $h2-size: round($h3-size * $base-type-scale);
+    $h1-size: round($h2-size * $base-type-scale);
+
+    h1,
+    .h1 {
+        @include rem(font-size, $h1-size);
+    }
+
+    h2,
+    .h2 {
+        @include rem(font-size, $h2-size);
+    }
+
+    h3,
+    .h3 {
+        @include rem(font-size, $h3-size);
+    }
+
+    h4,
+    .h4 {
+        @include rem(font-size, $h4-size);
+    }
+}
