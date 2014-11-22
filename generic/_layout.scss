@@ -38,7 +38,6 @@ ul, ol, dd,
 p, figure, small,
 pre, table, fieldset, hr,
 address {
-
     @include rem(margin, 0 0 $base-spacing-unit);
 
     > :last-child {

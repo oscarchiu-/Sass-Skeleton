@@ -43,6 +43,8 @@
 @import 'base/config';
 
 @import 'generic/clearfix';
+@import 'generic/widths';
+@import 'generic/helpers';
 
 @import 'generic/normalize';
 @import 'generic/layout';
@@ -53,6 +55,3 @@
 @import 'objects/media';
 @import 'objects/flag';
 @import 'objects/box';
-
-@import 'generic/widths';
-@import 'generic/helpers';

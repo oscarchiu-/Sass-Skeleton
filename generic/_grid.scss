@@ -20,5 +20,5 @@
     .grid__unit {
         display: block;
         float: left;
-        padding: 0 $gutter-width;
+        @include rem(padding, 0 $gutter-width);
     }
