@@ -13,6 +13,8 @@
  * CONFIG       ......  Project settings
  *
  * CLEARFIX     ......
+ * WIDTHS       ......  Width classes for use alongside the grid system etc.
+ * HELPERS      ......  Helper classes to use as needed
  *
  * NORMALIZE    ......  normalize.css
  * LAYOUT       ......  Elements layout
@@ -23,9 +25,6 @@
  * MEDIA        ......  Media object
  * FLAG         ......  Flag object
  * BOX          ......  Object for boxing off content
- *
- * WIDTHS       ......  Width classes for use alongside the grid system etc.
- * HELPERS      ......  Helper classes to use as needed
  */
 
 
@@ -38,20 +37,20 @@
 |--------------------------------------------------------------------------
 */
 
-@import 'base/functions';
-@import 'base/mixins';
-@import 'base/config';
+@import "base/functions";
+@import "base/mixins";
+@import "base/config";
 
-@import 'generic/clearfix';
-@import 'generic/widths';
-@import 'generic/helpers';
+@import "generic/clearfix";
+@import "generic/widths";
+@import "generic/helpers";
 
-@import 'generic/normalize';
-@import 'generic/layout';
-@import 'generic/grid';
-@import 'generic/typography';
+@import "generic/normalize";
+@import "generic/layout";
+@import "generic/grid";
+@import "generic/typography";
 
-@import 'objects/nav';
-@import 'objects/media';
-@import 'objects/flag';
-@import 'objects/box';
+@import "objects/nav";
+@import "objects/media";
+@import "objects/flag";
+@import "objects/box";
