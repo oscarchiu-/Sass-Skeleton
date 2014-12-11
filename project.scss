@@ -41,14 +41,14 @@
 @import "base/mixins";
 @import "base/config";
 
-@import "generic/clearfix";
-@import "generic/widths";
-@import "generic/helpers";
+@import "shared/clearfix";
+@import "shared/widths";
+@import "shared/helpers";
 
-@import "generic/normalize";
-@import "generic/layout";
-@import "generic/grid";
-@import "generic/typography";
+@import "shared/normalize";
+@import "shared/layout";
+@import "shared/grid";
+@import "shared/typography";
 
 @import "objects/nav";
 @import "objects/media";
