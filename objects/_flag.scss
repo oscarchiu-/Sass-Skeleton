@@ -2,9 +2,15 @@
 |--------------------------------------------------------------------------
 | $FLAG
 |--------------------------------------------------------------------------
-| Reading and code credit: http://csswizardry.com/2013/05/the-flag-object/
 */
 
+
+/**
+ * For placing text-like and image-like content side by side but providing the
+ * ability to top/middle/bottom align the text-like content
+ *
+ * @link http://csswizardry.com/2013/05/the-flag-object/
+ */
 
 .flag,
 %flag {

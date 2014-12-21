@@ -47,7 +47,8 @@ html {
  */
 
 h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+.h1, .h2, .h3, .h4, .h5, .h6,
+%h1, %h2, %h3, %h4, %h5, %h6 {
     font-family: $base-heading-font-stack;
     font-weight: $base-heading-font-weight;
     line-height: $base-heading-line-height;
@@ -67,7 +68,7 @@ h1, h2, h3, h4, h5, h6,
 a {
     color: $brand;
     text-decoration: none;
-    @include transition(color, .1s, ease-in-out);
+    transition: color 1s ease-in-out;
 
     &:hover {
         color: darken($brand, 10%);

@@ -14,7 +14,7 @@
     &,
     &:before,
     &:after {
-        @include vendor-prefix(box-sizing, border-box);
+        box-sizing: border-box;
     }
 }
 
@@ -25,7 +25,7 @@
 /**
  * Set a vertical rhythm for our site
  *
- * All block level elements get an identical margin-bottom
+ * All block level elements get an identical margin-bottom, which
  *
  * 1. Remove the margin from the last child of an element to
  *    avoid extra margin
@@ -34,6 +34,7 @@
 section, article, header, footer, nav, aside, div,
 h1, h2, h3, h4, h5, h6, hgroup,
 .h1, .h2, .h3, .h4, .h5, .h6,
+%h1, %h2, %h3, %h4, %h5, %h6,
 ul, ol, dd,
 p, figure, small,
 pre, table, fieldset, hr,
@@ -55,4 +56,5 @@ address {
 
 img {
     max-width: 100%;
+    height: auto;
 }

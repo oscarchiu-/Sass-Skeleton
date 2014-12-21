@@ -2,14 +2,16 @@
 |--------------------------------------------------------------------------
 | $GRID
 |--------------------------------------------------------------------------
-| @link http://bit.ly/1mPqf5W
 */
 
 
 /**
- * Does what it says on the tin
+ * Provides a way of 'gridding-up' elements
  *
- * 1. Compensates for padding on grid__unit, creating a nice alignment
+ * @link http://bit.ly/1mPqf5W
+ *
+ * 1. Compensates for the padding on `.grid__unit` elements, creating proper
+ *    alignment
  */
 
 .grid {

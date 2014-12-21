@@ -6,34 +6,14 @@
 
 
 /**
- * Create vendor-prefixed CSS in one go, e.g.
+ * Provide rgba and rgb rules for `$property` using `$rgb` and `$opacity`
  *
-   @include vendor-prefix(border-radius, 4px);
+ * @example scss
+ * rgba(color, rgb(51, 51, 51), 0.8);
  *
- * @param $property {string}
- * @param $value... {mixed}
- */
-
-@mixin vendor-prefix($property, $value...){
-    -webkit-#{$property}: $value;
-       -moz-#{$property}: $value;
-        -ms-#{$property}: $value;
-         -o-#{$property}: $value;
-            #{$property}: $value;
-}
-
-
-
-
-
-/**
- * Apply RGBA with an RGB fallback for older browsers, e.g
- *
- * @include rgba(color, rgb(51, 51, 51), 0.8);
- *
- * @param $property {string}
- * @param $rgb      {rgb}
- * @param $opacity  {integer}
+ * @param {string} $property
+ * @param {rgb}    $rgb
+ * @param {float}  $opacity
  */
 
 @mixin rgba($property, $rgb, $opacity) {
@@ -48,40 +28,22 @@
 
 
 
-/**
- * Provide different vendor prefixes for transitions, e.g
- *
- * @include transition(color, .1s, ease-in-out);
- *
- * @param $property  {string}
- * @param $time      {float}
- * @param $method    {string}
- */
-
-@mixin transition($property, $time, $method) {
-    -webkit-transition: $property $time $method;
-       -moz-transition: $property $time $method;
-        -ms-transition: $property $time $method;
-         -o-transition: $property $time $method;
-            transition: $property $time $method;
-}
-
-
-
-
 
 /**
- * Provide a PX fallback for sizing with REM, e.g
+ * Provide REM and PX rules for `$property` using `$values`
  *
- * @include rem(font-size, 16px);
- * @include rem(font-size, 2rem);
+ * @example scss
+ * include rem(font-size, 16px);
  *
- * @param $property {string}
- * @param $values   {mixed}
+ * @example scss
+ * include rem(font-size, 2rem);
+ *
+ * @param {string} $property
+ * @param {mixed}  $values
  */
 
 @mixin rem($property, $values) {
-    // Create a couple of empty lists as output buffers.
+    // Create a couple of empty lists for output
     $px-values: ();
     $rem-values: ();
 
@@ -123,7 +85,6 @@
         }
     }
 
-    // output the converted rules
     #{$property}: $px-values;
     #{$property}: $rem-values;
 }
@@ -133,14 +94,14 @@
 
 
 /**
- * Setup width classes in one swoop, e.g
+ * Setup width classes using `$namespace` for prefixing
  *
- * @include grid-setup('mobile-');
+ * @exampel scss
+ * include grid-setup('mobile-');
  *
- * @param $namespace {string}
+ * @param {string} $namespace
  *
- * Credit to Harry Roberts
- * @link http://bit.ly/1gTnXVA
+ * @link http://bit.ly/1gTnXVA Credit to Harry Roberts
  */
 
 @mixin grid-setup($namespace: "") {
@@ -237,34 +198,46 @@
 
 
 /**
- * Mixin to setup our type-scale
+ * Mixin to setup our headings using `$type-scale`
  *
- * Based upon the type mixin in https://github.com/kenwheeler/guff
+ * @example scss
+ * include type();
+ *
+ * @example scss
+ * include type(1.25);
+ *
+ * @param {float} $type-scale ($base-type-scale)
+ *
+ * @requires {mixin} rem
  */
 
-@mixin type() {
-    $h4-size: round($base-font-size * $base-type-scale);
-    $h3-size: round($h4-size * $base-type-scale);
-    $h2-size: round($h3-size * $base-type-scale);
-    $h1-size: round($h2-size * $base-type-scale);
+@mixin type($type-scale: $base-type-scale) {
+    $h4-size: round($base-font-size * $type-scale);
+    $h3-size: round($h4-size * $type-scale);
+    $h2-size: round($h3-size * $type-scale);
+    $h1-size: round($h2-size * $type-scale);
 
     h1,
-    .h1 {
+    .h1,
+    %h1 {
         @include rem(font-size, $h1-size);
     }
 
     h2,
-    .h2 {
+    .h2,
+    %h2 {
         @include rem(font-size, $h2-size);
     }
 
     h3,
-    .h3 {
+    .h3,
+    %h3 {
         @include rem(font-size, $h3-size);
     }
 
     h4,
-    .h4 {
+    .h4,
+    %h4 {
         @include rem(font-size, $h4-size);
     }
 }

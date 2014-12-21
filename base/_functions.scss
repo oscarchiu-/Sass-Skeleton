@@ -6,25 +6,23 @@
 
 
 /**
- * Work out powers
+ * Raise `$base` to `$exponent`
  *
- * @param $base {integer}
- * @param $exp  {integer}
+ * @param {integer|float} $base
+ * @param {integer}       $exponent
  *
- * @return      {integer}
+ * @return {integer}
  */
 
-@function pow($base, $exp){
+@function pow($base, $exponent) {
     $value: $base;
 
-    @if $exp > 1 {
-        @for $i from 2 through $exp {
+    @if $exponent > 1 {
+        @for $i from 2 through $exponent {
             $value: $value * $base;
         }
-    }
-
-    @if $exp < 1 {
-        @for $i from 0 through -$exp {
+    } @else if $exponent < 1 {
+        @for $i from 0 through -$exponent {
             $value: $value / $base;
         }
     }
@@ -37,10 +35,11 @@
 
 
 /**
- * Strip any units from a value
+ * Strip any units from `$value`
  *
- * @param $value {string}
- * @return       {integer}
+ * @param {string} $value
+ *
+ * @return {integer}
  */
 
 @function strip-unit($value) {
@@ -52,14 +51,15 @@
 
 
 /**
- * Double a given number
+ * Double `$value`
  *
- * @param $num {integer}
- * @return     {integer}
+ * @param {integer} $value
+ *
+ * @return {integer}
  */
 
-@function double($num) {
-    @return $num * 2;
+@function double($value) {
+    @return $value * 2;
 }
 
 
@@ -67,12 +67,13 @@
 
 
 /**
- * Halve a given number
+ * Halve `$value`
  *
- * @param $num {integer}
- * @return     {integer}
+ * @param {integer} $value
+ *
+ * @return {integer}
  */
 
-@function halve($num) {
-    @return $num * .5;
+@function halve($value) {
+    @return $value * .5;
 }

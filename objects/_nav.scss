@@ -2,23 +2,13 @@
 |--------------------------------------------------------------------------
 | $NAV
 |--------------------------------------------------------------------------
-| Code credit: http://bit.ly/1u3hlth
 */
 
 
 /**
  * When used on an <ol> or <ul>, this class throws the list into horizontal mode
  *
- * Read: csswizardry.com/2011/09/the-nav-abstraction
- *
- * e.g.:
- *
-   <ul class=nav>
-       <li><a href=#>Home</a></li>
-       <li><a href=#>About</a></li>
-       <li><a href=#>Portfolio</a></li>
-       <li><a href=#>Contact</a></li>
-   </ul>
+ * @link csswizardry.com/2011/09/the-nav-abstraction
  *
  * 1. Make sure we take away any identation that may be applied to lists
  */
@@ -33,40 +23,26 @@
         &,
         > a {
             display: inline-block;
-           *display: inline;
-            zoom: 1;
         }
     }
 }
 
 
 /**
- * '.nav--tablets'
- *
  * Provides slider-like navigation
  *
  * @extends .nav
  *
- * Requires the comments to avoid funky whitespace
- *
- * e.g:
- *
-    <ul class="nav  nav--tablets">
-        <li><a href=#></a></li><!--
-        --><li><a href=#></a></li><!--
-        --><li><a href=#></a></li><!--
-        --><li><a href=#></a></li>
-    </ul>
- *
  * 1. Set each item to a square, needed for the circular shape
  * 2. Creates the circular shape
+ * 3. Adjacent elements will be spaced out
  */
 
 .nav--tablets {
 
     > li {
-        & + li {
-            @include rem(margin-left, 4px);
+        + li {
+            @include rem(margin-left, halve($half-spacing-unit));  /* 3 */
         }
 
         > a {
@@ -81,51 +57,5 @@
                 background: #7f8c8d;
             }
         }
-    }
-}
-
-
-/**
- * Centers the list
- *
- * @extends .nav
- *
- * e.g.:
- *
-   <ul class="nav  nav--centered">
-       <li><a href=#>Home</a></li>
-       <li><a href=#>About</a></li>
-       <li><a href=#>Portfolio</a></li>
-       <li><a href=#>Contact</a></li>
-   </ul>
- *
- */
-
-.nav--centered {
-    text-align: center;
-}
-
-
-/**
- * Make a list of keywords. Extends '.nav'
- *
- * Requires the comments to avoid funky whitespace
- *
- * e.g:
- *
-    <ul class="nav  nav--keywords">
-        <li><a href=#></a></li><!--
-        --><li><a href=#></a></li><!--
-        --><li><a href=#></a></li><!--
-        --><li><a href=#></a></li>
-    </ul>
- *
- *
- */
-
-.nav--keywords {
-
-    > li + li:before {
-        content: "\002C" "\00A0";
     }
 }
