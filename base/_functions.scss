@@ -6,35 +6,6 @@
 
 
 /**
- * Raise `$base` to `$exponent`
- *
- * @param {integer|float} $base
- * @param {integer}       $exponent
- *
- * @return {integer}
- */
-
-@function pow($base, $exponent) {
-    $value: $base;
-
-    @if $exponent > 1 {
-        @for $i from 2 through $exponent {
-            $value: $value * $base;
-        }
-    } @else if $exponent < 1 {
-        @for $i from 0 through -$exponent {
-            $value: $value / $base;
-        }
-    }
-
-    @return $value;
-}
-
-
-
-
-
-/**
  * Strip any units from `$value`
  *
  * @param {string} $value
@@ -76,4 +47,25 @@
 
 @function halve($value) {
     @return $value * .5;
+}
+
+
+
+
+
+
+/**
+ * Split an rgb value into it's component red, green and blue colours
+ *
+ * @param  {rgb|hex} $rgb
+ *
+ * @return {map} A map containing the split values
+ */
+
+@function splitrgb($rgb) {
+    @return (
+        "red": red($rgb),
+        "green": green($rgb),
+        "blue": blue($rgb)
+    );
 }
