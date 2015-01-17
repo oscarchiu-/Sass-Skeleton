@@ -6,25 +6,27 @@
 
 /**
  * CONTENTS     ......  You're reading it!
- * IMPORTS      ......  Import our files, outlined below
  *
  * FUNCTIONS    ......
  * MIXINS       ......
- * CONFIG       ......  Project settings
+ *
+ * CONFIG       ......  Project settings files
  *
  * CLEARFIX     ......
- * WIDTHS       ......  Width classes for use alongside the grid system etc.
- * HELPERS      ......  Helper classes to use as needed
  *
  * NORMALIZE    ......  normalize.css
- * LAYOUT       ......  Elements layout
  * GRID         ......  Setup the grid
+ * LAYOUT       ......  Elements layout
  * TYPOGRAPHY   ......
  *
+ * BOX          ......  Object for boxing off content
  * NAV          ......  Put lists into horizontal nav mode
  * MEDIA        ......  Media object
  * FLAG         ......  Flag object
- * BOX          ......  Object for boxing off content
+ *
+ * WIDTHS       ......  Percentage-based width classes
+
+ * HELPERS      ......  Helper classes to use as needed
  */
 
 
@@ -37,20 +39,25 @@
 |--------------------------------------------------------------------------
 */
 
-@import "base/functions";
-@import "base/mixins";
-@import "base/config";
+@import "tools/functions";
+@import "tools/mixins";
 
-@import "shared/clearfix";
-@import "shared/widths";
-@import "shared/helpers";
+@import "config/colours";
+@import "config/typography";
+@import "config/structural";
+
+@import "tools/clearfix";
 
 @import "shared/normalize";
-@import "shared/layout";
 @import "shared/grid";
+@import "shared/layout";
 @import "shared/typography";
 
+@import "objects/box";
 @import "objects/nav";
 @import "objects/media";
 @import "objects/flag";
-@import "objects/box";
+
+@import "shared/widths";
+
+@import "tools/helpers";
