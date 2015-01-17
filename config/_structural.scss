@@ -1,0 +1,13 @@
+/*
+|--------------------------------------------------------------------------
+| CONFIG.STRUCTURAL
+|--------------------------------------------------------------------------
+*/
+
+$gutter-width: 18px;
+$half-gutter-width: halve($gutter-width);
+$double-gutter-width: double($gutter-width);
+
+$base-spacing-unit: $base-font-size * $base-line-height;
+$half-spacing-unit: halve($base-spacing-unit);
+$double-spacing-unit: double($base-spacing-unit);

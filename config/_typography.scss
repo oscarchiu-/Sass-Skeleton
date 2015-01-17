@@ -1,13 +1,8 @@
 /*
 |--------------------------------------------------------------------------
-| $CONFIG
+| $CONFIG.TYPOGRAPHY
 |--------------------------------------------------------------------------
 */
-
-
-/**
- * Typography
- */
 
 $light: 300;
 $regular: 400;
@@ -25,30 +20,3 @@ $base-heading-font-colour: #434343;
 $base-heading-font-weight: $bold;
 
 $base-type-scale: 1.250;
-
-
-
-
-
-/**
- * Colours
- */
-
-$white: #fff;
-$brand: #e74c3c;
-
-
-
-
-
-/**
- * Structural
- */
-
-$gutter-width: 18px;
-$half-gutter-width: halve($gutter-width);
-$double-gutter-width: double($gutter-width);
-
-$base-spacing-unit: $base-font-size * $base-line-height;
-$half-spacing-unit: halve($base-spacing-unit);
-$double-spacing-unit: double($base-spacing-unit);
