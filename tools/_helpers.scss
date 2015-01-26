@@ -22,9 +22,7 @@
  */
 
 %truncate {
-    @extend %no-wrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    @include truncate();
 }
 
 
