@@ -13,7 +13,8 @@
  * 1. Make sure we take away any identation that may be applied to lists
  */
 
-.nav {
+.nav,
+%nav {
     list-style: none;
     margin-left: 0;   /* 1 */
     padding-left: 0;  /* 1 */
@@ -23,39 +24,6 @@
         &,
         > a {
             display: inline-block;
-        }
-    }
-}
-
-
-/**
- * Provides slider-like navigation
- *
- * @extends .nav
- *
- * 1. Set each item to a square, needed for the circular shape
- * 2. Creates the circular shape
- * 3. Adjacent elements will be spaced out
- */
-
-.nav--tablets {
-
-    > li {
-        + li {
-            @include rem(margin-left, halve($half-spacing-unit));  /* 3 */
-        }
-
-        > a {
-            display: block;
-            background: #95a5a6;
-            border-radius: 100%;         /* 2 */
-            @include rem(width, 16px);   /* 1 */
-            @include rem(height, 16px);  /* 1 */
-
-            &:hover,
-            &.current {
-                background: #7f8c8d;
-            }
         }
     }
 }

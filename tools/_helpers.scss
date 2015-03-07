@@ -18,18 +18,6 @@
 
 
 /**
- * Truncate text that goes onto more than one line
- */
-
-%truncate {
-    @include truncate();
-}
-
-
-
-
-
-/**
  * Hide visually and from screen readers
  */
 
@@ -44,13 +32,13 @@
 
 
 /**
- * Hide only visually, but have it available for screen readers
+ * Hide visually, but have it available for screen readers
  *
  * @link h5bp.com/v
  */
 
-.visuallyhidden,
-%visuallyhidden {
+.screenreader-text,
+%screenreader-text {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -59,17 +47,4 @@
     padding: 0;
     position: absolute;
     width: 1px;
-}
-
-
-
-
-
-/**
- * Hide visually and from screen readers, but maintain layout
- */
-
-.invisible,
-%invisible {
-    visibility: hidden;
 }

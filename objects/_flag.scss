@@ -19,8 +19,8 @@
 }
 
     .flag__image,
-    %flag__image,
     .flag__body,
+    %flag__image,
     %flag__body {
         display: table-cell;
         vertical-align: middle;
@@ -52,8 +52,8 @@
 %flag--top {
 
     .flag__image,
-    %flag__image,
     .flag__body,
+    %flag__image,
     %flag__body {
         vertical-align: top;
     }
@@ -70,8 +70,8 @@
 %flag--bottom {
 
     .flag__image,
-    %flag__image,
     .flag__body,
+    %flag__image,
     %flag__body {
         vertical-align: bottom;
     }
@@ -84,7 +84,8 @@
  * @extends .flag
  */
 
-.flag--rev {
+.flag--rev,
+%flag--rev {
 
     .flag__image,
     %flag__image {

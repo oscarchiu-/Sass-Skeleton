@@ -4,10 +4,20 @@
 |--------------------------------------------------------------------------
 */
 
-$gutter-width: 18px;
-$half-gutter-width: halve($gutter-width);
-$double-gutter-width: double($gutter-width);
+/**
+ * Spacing units for elements
+ */
 
 $base-spacing-unit: $base-font-size * $base-line-height;
 $half-spacing-unit: halve($base-spacing-unit);
 $double-spacing-unit: double($base-spacing-unit);
+
+
+
+
+
+/**
+ * Gutter width for the grid
+ */
+
+$gutter-width: 18px;
