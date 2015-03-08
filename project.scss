@@ -48,16 +48,16 @@
 
 @import "tools/clearfix";
 
-@import "shared/normalize";
-@import "shared/grid";
-@import "shared/layout";
-@import "shared/typography";
+@import "base/normalize";
+@import "base/grid";
+@import "base/layout";
+@import "base/typography";
 
 @import "objects/box";
 @import "objects/nav";
 @import "objects/media";
 @import "objects/flag";
 
-@import "shared/widths";
+@import "base/widths";
 
 @import "tools/helpers";
