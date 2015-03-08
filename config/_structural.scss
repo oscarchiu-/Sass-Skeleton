@@ -9,8 +9,8 @@
  */
 
 $base-spacing-unit: $base-font-size * $base-line-height;
-$half-spacing-unit: halve($base-spacing-unit);
-$double-spacing-unit: double($base-spacing-unit);
+$small-spacing-unit: round(halve($base-spacing-unit));
+$large-spacing-unit: round(double($base-spacing-unit));
 
 
 
@@ -20,4 +20,4 @@ $double-spacing-unit: double($base-spacing-unit);
  * Gutter width for the grid
  */
 
-$gutter-width: 18px;
+$gutter-width: $base-spacing-unit;
