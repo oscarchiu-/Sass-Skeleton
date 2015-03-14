@@ -1,6 +1,6 @@
 /*
 |--------------------------------------------------------------------------
-| $MIXINS
+| $TOOLS.MIXINS
 |--------------------------------------------------------------------------
 */
 
@@ -97,17 +97,17 @@
 
 
 /**
- * Setup width classes using `$namespace` for prefixing
+ * Setup width classes using optional namespace for prefixing
  *
- * @exampel scss
+ * @example scss
  * include grid-setup('mobile-');
  *
  * @param {string} $namespace
  *
- * @link http://bit.ly/1gTnXVA Credit to Harry Roberts
+ * @link http://bit.ly/1gTnXVA
  */
 
-@mixin grid-setup($namespace: "") {
+@mixin grid-setup($namespace: '') {
     /**
     * Whole
     */
@@ -201,7 +201,7 @@
 
 
 /**
- * Mixin to setup our headings using `$type-scale`
+ * Mixin to setup our headings using the set type scale
  *
  * @example scss
  * include type();
@@ -220,27 +220,19 @@
     $h2-size: round($h3-size * $type-scale);
     $h1-size: round($h2-size * $type-scale);
 
-    h1,
-    .h1,
-    %h1 {
+    h1, .h1 {
         @include rem(font-size, $h1-size);
     }
 
-    h2,
-    .h2,
-    %h2 {
+    h2, .h2 {
         @include rem(font-size, $h2-size);
     }
 
-    h3,
-    .h3,
-    %h3 {
+    h3, .h3 {
         @include rem(font-size, $h3-size);
     }
 
-    h4,
-    .h4,
-    %h4 {
+    h4, .h4 {
         @include rem(font-size, $h4-size);
     }
 }

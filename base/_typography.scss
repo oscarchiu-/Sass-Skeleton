@@ -1,23 +1,67 @@
 /*
 |--------------------------------------------------------------------------
-| $TYPOGRAPHY
+| $BASE.TYPOGRAPHY
 |--------------------------------------------------------------------------
 */
 
 
 /**
- * Root typography settings
+ * Headings
+ *
+ * 1. Use the type mixin to set heading sizes based on the
+ *    type scale set for the project
  */
 
-html {
-    font-family: $base-font-stack;
-    font-size: $base-font-size;
-    font-weight: $base-font-weight;
-    line-height: $base-line-height;
-    color: $base-font-colour;
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: $base-heading-font-stack;
+    font-weight: $base-heading-font-weight;
+    line-height: $base-heading-line-height;
+    color: $base-heading-font-colour;
+}
 
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
+@include type(); /* 1 */
+
+
+
+
+
+/**
+ * Links
+ */
+
+a {
+    color: $brand;
+    text-decoration: none;
+    transition: color .2s ease-in-out;
+
+    &:hover {
+        color: darken($brand, 10%);
+    }
+}
+
+
+
+
+
+/**
+ * Lists
+ *
+ * 1. Give lists a consistent indentation
+ * 2. Avoid extra vertical spacing in nested lists
+ */
+
+ul, ol, dd {
+    @include rem(margin-left, $base-spacing-unit); /* 1 */
+}
+
+
+ul, ol {
+    li > {
+        ul, ol {
+            margin-bottom: 0; /* 2 */
+        }
+    }
 }
 
 
@@ -36,41 +80,4 @@ html {
 ::-moz-selection {
     background: $brand;
     color: $white;
-}
-
-
-
-
-
-/**
- * Headings
- */
-
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6,
-%h1, %h2, %h3, %h4, %h5, %h6 {
-    font-family: $base-heading-font-stack;
-    font-weight: $base-heading-font-weight;
-    line-height: $base-heading-line-height;
-    color: $base-heading-font-colour;
-}
-
-@include type();
-
-
-
-
-
-/**
- * Body text
- */
-
-a {
-    color: $brand;
-    text-decoration: none;
-    transition: color .2s ease-in-out;
-
-    &:hover {
-        color: darken($brand, 10%);
-    }
 }

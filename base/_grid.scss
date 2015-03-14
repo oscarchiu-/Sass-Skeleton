@@ -1,6 +1,6 @@
 /*
 |--------------------------------------------------------------------------
-| $GRID
+| $BASE.GRID
 |--------------------------------------------------------------------------
 */
 
@@ -10,8 +10,8 @@
  *
  * @link http://bit.ly/1mPqf5W
  *
- * 1. The negative margin ompensates for the padding on `.grid__unit`
- *    elements, creating proper alignment
+ * 1. The negative margin compensates for the padding on `.grid__unit`
+ *    elements, aligning them with the sides of the grid
  */
 
 .grid {

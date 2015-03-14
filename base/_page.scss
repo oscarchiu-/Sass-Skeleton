@@ -1,0 +1,112 @@
+/*
+|--------------------------------------------------------------------------
+| $BASE.PAGE
+|--------------------------------------------------------------------------
+*/
+
+
+/**
+ * Apply a sensible box model to our site
+ *
+ * 1. Inheriting box-sizing means we can more fully
+ *    change the box-model for other components:
+ *        - css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+ */
+
+* {
+
+    &,
+    &:before,
+    &:after {
+        box-sizing: inherit; /* 1 */
+    }
+}
+
+
+
+
+
+/**
+ * High-, page-level styling.
+ *
+ * @link https://github.com/inuitcss/base.page/blob/master/_base.page.scss
+ *
+ * 1. Set the default `font-size` and `line-height` for the entire project,
+ *    sourced from our default variables. The `font-size` is calculated to exist
+ *    in ems, the `line-height` is calculated to exist unitlessly.
+ * 2. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
+ *    navigating between pages that do/do not have enough content to produce
+ *    scrollbars naturally.
+ * 3. Ensure the page always fills at least the entire height of the viewport.
+ * 4. Prevent certain mobile browsers from automatically zooming fonts.
+ * 5. Fonts on OSX will look more consistent with other systems that do not
+ *    render text using sub-pixel anti-aliasing.
+ * 6. https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+
+html {
+    font-size: ($base-font-size / 16px) * 1em; /* 1 */
+    line-height: $base-line-height; /* 1 */
+    font-family: $base-font-stack;
+    font-weight: $base-font-weight;
+    color: $base-font-colour;
+
+    overflow-y: scroll; /* 2 */
+    min-height: 100%; /* 3 */
+
+    -webkit-text-size-adjust: 100%; /* 4 */
+        -ms-text-size-adjust: 100%; /* 4 */
+
+    -moz-osx-font-smoothing: grayscale; /* 5 */
+     -webkit-font-smoothing: antialiased; /* 5 */
+
+    box-sizing: border-box; /* 6 */
+}
+
+
+
+
+
+/**
+ * Set a vertical rhythm for our site
+ *
+ * All block level elements get an identical margin-bottom,
+ * for a nice vertical rhythm
+ *
+ * 1. Remove the margin from the last child of an element to
+ *    avoid extra margins
+ */
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+ul, ol, dl,
+blockquote, p, address,
+hr,
+table,
+fieldset, figure,
+pre,
+%margin-bottom {
+    @include rem(margin, 0 0 $base-spacing-unit);
+
+    > :last-child {
+        margin-bottom: 0;  /* 1 */
+    }
+}
+
+
+
+
+
+/**
+ * 1. Make images responsive
+ * 2. Make `alt` text italic so it stands out
+ * 3. Removes the whitespace under images dropped into
+ *    the page
+ */
+
+img {
+    max-width: 100%; /* 1 */
+    height: auto; /* 1 */
+    font-style: italic; /* 2 */
+    vertical-align: bottom; /* 3 */
+}

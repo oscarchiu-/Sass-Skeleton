@@ -1,16 +1,19 @@
 /*
 |--------------------------------------------------------------------------
-| $NAV
+| $OBJECTS.NAV
 |--------------------------------------------------------------------------
 */
 
 
 /**
- * When used on an <ol> or <ul>, this class throws the list into horizontal mode
+ * Throw a list into horizontal mode and remove the list styles
  *
  * @link csswizardry.com/2011/09/the-nav-abstraction
  *
  * 1. Make sure we take away any identation that may be applied to lists
+ * 2. Make list items line up next to each other
+ * 3. Make links fill their list items which is make selecting them
+ *    easier, especially on touch devices
  */
 
 .nav,
@@ -20,10 +23,10 @@
     padding-left: 0;  /* 1 */
 
     > li {
+        display: inline-block; /* 2 */
 
-        &,
         > a {
-            display: inline-block;
+            display: block; /* 3 */
         }
     }
 }

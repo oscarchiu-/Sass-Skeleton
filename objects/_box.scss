@@ -1,6 +1,6 @@
 /*
 |--------------------------------------------------------------------------
-| $BOX
+| $OBJECTS.BOX
 |--------------------------------------------------------------------------
 */
 
@@ -10,7 +10,8 @@
  *
  * @link http://bit.ly/1p4GwXh
  *
- * 1. So we can apply the `.box` class to naturally-inline elements.
+ * 1. So we can apply the class to naturally-inline elements
+ * 2. Ensure we don't end up doubling up margins
  */
 
 .box,
@@ -20,6 +21,6 @@
     @include rem(padding, $base-spacing-unit);
 
     > :last-child {
-        margin-bottom: 0;
+        margin-bottom: 0; /* 2 */
     }
 }

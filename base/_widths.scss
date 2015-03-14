@@ -1,18 +1,27 @@
 /*
 |--------------------------------------------------------------------------
-| $WIDTHS
+| $BASE.WIDTHS
 |--------------------------------------------------------------------------
 */
 
 
-@include grid-setup();
+/**
+ * Setup our utility width classes
+ *
+ * 1. Set up namespaceless width classes regardless of whether we
+ *    have set any breakpoints
+ * 2. If we have setup any breakpoints, create width classes for
+ *    each namespace
+ */
+
+@include grid-setup(); /* 1 */
 
 @if variable-exists(breakpoints) and 0 < length($breakpoints) {
 
     @each $breakpoint, $width in $breakpoints {
 
         @media screen and (min-width: $width) {
-            @include grid-setup("#{$breakpoint}-");
+            @include grid-setup("#{$breakpoint}-"); /* 2 */
         }
     }
 }
