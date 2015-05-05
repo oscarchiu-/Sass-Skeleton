@@ -1,0 +1,67 @@
+/*
+|--------------------------------------------------------------------------
+| $TOOLS.FUNCTIONS
+|--------------------------------------------------------------------------
+*/
+
+
+/**
+ * Strip any units from `$value`
+ *
+ * @param {string} $value
+ *
+ * @return {integer}
+ */
+@function strip-unit($value) {
+    @return $value / ($value * 0 + 1);
+}
+
+
+
+
+
+/**
+ * Double `$value`
+ *
+ * @param {integer} $value
+ *
+ * @return {integer}
+ */
+@function double($value) {
+    @return $value * 2;
+}
+
+
+
+
+
+/**
+ * Halve `$value`
+ *
+ * @param {integer} $value
+ *
+ * @return {integer}
+ */
+@function halve($value) {
+    @return $value * .5;
+}
+
+
+
+
+
+
+/**
+ * Split an rgb value into it's component red, green and blue colours
+ *
+ * @param  {rgb|hex} $rgb
+ *
+ * @return {map} A map containing the split values
+ */
+@function split-into-rgb($rgb) {
+    @return (
+        "red": red($rgb),
+        "green": green($rgb),
+        "blue": blue($rgb)
+    );
+}

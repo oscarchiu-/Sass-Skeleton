@@ -1,0 +1,17 @@
+/*
+|--------------------------------------------------------------------------
+| $BASE.IMAGES
+|--------------------------------------------------------------------------
+*/
+
+
+/**
+ * 1. Make images responsive
+ * 2. Make `alt` text italic so it stands out
+ * 3. Removes the whitespace under images dropped into the page
+ */
+img {
+    max-width: 100%; /* 1 */
+    font-style: italic; /* 2 */
+    vertical-align: bottom; /* 3 */
+}

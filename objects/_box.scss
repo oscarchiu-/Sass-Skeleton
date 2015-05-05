@@ -1,0 +1,20 @@
+/*
+|--------------------------------------------------------------------------
+| $OBJECTS.BOX
+|--------------------------------------------------------------------------
+*/
+
+
+/**
+ * For boxing off content
+ *
+ * @link http://bit.ly/1p4GwXh
+ *
+ * 1. So we can apply the class to naturally-inline elements
+ */
+.o-box,
+%o-box {
+    @include clearfix();
+    display: block;  /* 1 */
+    @include rem(padding, $base-spacing-unit);
+}
