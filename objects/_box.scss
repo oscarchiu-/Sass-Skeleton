@@ -15,6 +15,6 @@
 .o-box,
 %o-box {
     @include clearfix();
-    display: block;  /* 1 */
+    display: block; /* 1 */
     @include rem(padding, $base-spacing-unit);
 }

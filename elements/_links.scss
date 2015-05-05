@@ -10,7 +10,7 @@ a {
     text-decoration: none;
     transition: color .2s ease-in-out;
 
-    @include hocus() {
+    @include hocus {
         color: darken($brand, 10%);
     }
 }
