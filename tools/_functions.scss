@@ -65,3 +65,18 @@
         "blue": blue($rgb)
     );
 }
+
+
+
+
+
+/**
+ * Covert a px value to the rem equivalent
+ *
+ * @param {number} $value
+ *
+ * @return {number} The rem equivalent
+ */
+@function rem($value) {
+    @return ($value / $base-font-size) * 1rem;
+}
