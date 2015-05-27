@@ -1,0 +1,24 @@
+/*
+|--------------------------------------------------------------------------
+| $GENERIC.BOX-SIZING
+|--------------------------------------------------------------------------
+*/
+
+
+/**
+ * Apply a sensible box model to our site
+ *
+ * 1. https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+html {
+    box-sizing: border-box;
+}
+
+* {
+
+    &,
+    &:before,
+    &:after {
+        box-sizing: inherit; /* 1 */
+    }
+}

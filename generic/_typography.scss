@@ -1,0 +1,19 @@
+/*
+|--------------------------------------------------------------------------
+| $GENERIC.TYPOGRAPHY
+|--------------------------------------------------------------------------
+*/
+
+
+/**
+ * Text selection styles
+ */
+::selection {
+    background: $brand;
+    color: $white;
+}
+
+::-moz-selection {
+    background: $brand;
+    color: $white;
+}

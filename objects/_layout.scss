@@ -1,0 +1,28 @@
+/*
+|--------------------------------------------------------------------------
+| $OBJECTS.LAYOUT
+|--------------------------------------------------------------------------
+*/
+
+
+/**
+ * For creating layouts
+ *
+ * @link http://bit.ly/1mPqf5W
+ *
+ * 1. Fix whitespace between inline-block elements
+ * 2. The negative margin compensates for the padding on `.grid__unit`
+ *    elements, aligning them with the sides of the grid
+ */
+.o-layout,
+%o-layout {
+    font-size: 0; /* 1 */
+    @include rem(margin, 0 (-$layout-gutter-width)); /* 2 */
+}
+
+    .o-layout__unit,
+    %o-layout__unit {
+        display: inline-block;
+        @include rem(font-size, $base-font-size); /* 1 */
+        @include rem(padding, 0 $layout-gutter-width);
+    }

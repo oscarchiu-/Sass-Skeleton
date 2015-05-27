@@ -1,14 +1,12 @@
 /*
 |--------------------------------------------------------------------------
-| $CONFIG.STRUCTURAL
+| $CONFIG.PAGE
 |--------------------------------------------------------------------------
 */
-
 
 /**
  * Spacing units for elements
  */
-
 $base-spacing-unit: $base-font-size * $base-line-height;
 $small-spacing-unit: round(halve($base-spacing-unit));
 $large-spacing-unit: round(double($base-spacing-unit));
@@ -18,7 +16,6 @@ $large-spacing-unit: round(double($base-spacing-unit));
 
 
 /**
- * Gutter width for the grid
+ * Gutter width for the layout grid
  */
-
-$gutter-width: $small-spacing-unit;
+$layout-gutter-width: $small-spacing-unit;

@@ -1,0 +1,16 @@
+/*
+|--------------------------------------------------------------------------
+| $ELEMENTS.LINKS
+|--------------------------------------------------------------------------
+*/
+
+
+a {
+    color: $brand;
+    text-decoration: none;
+    transition: color .2s ease-in-out;
+
+    @include hocus {
+        color: darken($brand, 10%);
+    }
+}

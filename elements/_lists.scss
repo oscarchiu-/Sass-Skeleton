@@ -1,0 +1,23 @@
+/*
+|--------------------------------------------------------------------------
+| $ELEMENTS.LISTS
+|--------------------------------------------------------------------------
+*/
+
+/**
+ * Give all lists a consistent indentation
+ */
+ul, ol, dd {
+    @include rem(margin-left, $base-spacing-unit);
+}
+
+/**
+ * Avoid extra vertical spacing in nested lists
+ */
+ul, ol {
+    li > {
+        ul, ol {
+            margin-bottom: 0;
+        }
+    }
+}

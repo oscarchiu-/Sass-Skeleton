@@ -15,17 +15,16 @@
  * rgba(color, #bada55, 0.8);
  *
  * @param {string}  $property
- * @param {rgb|hex} $rgb
+ * @param {rgb|hex} $colour
  * @param {float}   $opacity
  *
  * @requires {function} splitrgb
  */
+@mixin rgba($property, $colour, $opacity) {
+    $colour: split-into-rgb($colour);
 
-@mixin rgba($property, $rgb, $opacity) {
-    $splitrgb: splitrgb($rgb);
-
-    #{$property}: rgb(map-get($splitrgb, "red"), map-get($splitrgb, "green"), map-get($splitrgb, "blue"));
-    #{$property}: rgba($rgb, $opacity);
+    #{$property}: rgb(map-get($colour, "red"), map-get($colour, "green"), map-get($colour, "blue"));
+    #{$property}: rgba($colour, $opacity);
 }
 
 
@@ -44,47 +43,37 @@
  * @param {string} $property
  * @param {mixed}  $values
  */
-
 @mixin rem($property, $values) {
     // Create a couple of empty lists for output
     $px-values: ();
     $rem-values: ();
 
-    // Loop through the $values list
     @each $value in $values {
-        // For each property value, if it's in rem or px, derive both rem and
-        // px values for it and add those to the end of the appropriate buffer.
-        // Ensure all pixel values are rounded to the nearest pixel.
-        @if $value == 0 or $value == 0px {
-            // 0 -- use it without a unit
+        /**
+         * For each property value, if it's in rem or px, derive both rem and
+         * px values for it and add those to the end of the appropriate buffer.
+         * Ensure all pixel values are rounded to the nearest pixel.
+         */
+
+        $unit: unit($value);
+        $unitless-value: strip-unit($value);
+
+        @if ($unitless-value == 0) {
             $px-values: join($px-values, 0);
             $rem-values: join($rem-values, 0);
-        } @else if type-of($value) == number and not unitless($value) and (unit($value) == px) {
-            // px value given - calculate rem value from font-size
-            $new-rem-value: $value / $base-font-size;
-            $px-values: join($px-values, round($value));
-            $rem-values: join($rem-values, #{$new-rem-value}rem);
-        } @else if type-of($value) == number and not unitless($value) and (unit($value) == rem) {
-            // rem value given - calculate px value from font-size
-            $new-px-value: strip-unit($value) * $base-font-size;
-            $px-values: join($px-values, #{$new-px-value});
-            $rem-values: join($rem-values, $value);
-        } @else if type-of($value) == number and not unitless($value) and (unit($value) == "%") {
-            // % value given - don't add px or rem
-            $px-values: join($px-values, #{$value});
-            $rem-values: join($rem-values, #{$value});
-        } @else if $value == auto {
-            // auto - don't add px or rem
-            $px-values: join($px-values, auto);
-            $rem-values: join($rem-values, auto);
-        } @else if $value == '!important' {
-            // !important - don't add px or rem
-            $px-values: join($px-values, !important);
-            $rem-values: join($rem-values, !important);
-        } @else {
-            // unitless value - use those directly as rem and calculate the px-fallback
-            $px-values: join($px-values, round($value * $base-font-size));
-            $rem-values: join($rem-values, #{$value}rem);
+        } @else if (type-of($value) == number and not unitless($value)) {
+            @if ($unit == px) {
+                $px-values: join($px-values, round($value));
+                $rem-values: join($rem-values, rem($value));
+            } @else if ($unit == rem) {
+                $new-px-value: $unitless-value * $base-font-size;
+
+                $px-values: join($px-values, #{$new-px-value});
+                $rem-values: join($rem-values, $value);
+            } @else {
+                $px-values: join($px-values, #{$value});
+                $rem-values: join($rem-values, #{$value});
+            }
         }
     }
 
@@ -97,7 +86,7 @@
 
 
 /**
- * Setup width classes using optional namespace for prefixing
+ * Setup width classes using optional namespace prefix
  *
  * @example scss
  * include grid-setup('mobile-');
@@ -106,94 +95,93 @@
  *
  * @link http://bit.ly/1gTnXVA
  */
-
 @mixin grid-setup($namespace: '') {
     /**
     * Whole
     */
-    .#{$namespace}one-whole         { width: 100%; }
+    .u-#{$namespace}one-whole         { width: 100%; }
 
 
     /**
     * Halves
     */
-    .#{$namespace}one-half          { width: 50%; }
+    .u-#{$namespace}one-half          { width: 50%; }
 
 
     /**
     * Thirds
     */
-    .#{$namespace}one-third         { width: 33.333%; }
-    .#{$namespace}two-thirds        { width: 66.666%; }
+    .u-#{$namespace}one-third         { width: 33.333%; }
+    .u-#{$namespace}two-thirds        { width: 66.666%; }
 
 
     /**
     * Quarters
     */
-    .#{$namespace}one-quarter       { width: 25%; }
-    .#{$namespace}two-quarters      { @extend .#{$namespace}one-half; }
-    .#{$namespace}three-quarters    { width: 75%; }
+    .u-#{$namespace}one-quarter       { width: 25%; }
+    .u-#{$namespace}two-quarters      { @extend .u-#{$namespace}one-half; }
+    .u-#{$namespace}three-quarters    { width: 75%; }
 
 
     /**
     * Fifths
     */
-    .#{$namespace}one-fifth         { width: 20%; }
-    .#{$namespace}two-fifths        { width: 40%; }
-    .#{$namespace}three-fifths      { width: 60%; }
-    .#{$namespace}four-fifths       { width: 80%; }
+    .u-#{$namespace}one-fifth         { width: 20%; }
+    .u-#{$namespace}two-fifths        { width: 40%; }
+    .u-#{$namespace}three-fifths      { width: 60%; }
+    .u-#{$namespace}four-fifths       { width: 80%; }
 
 
     /**
     * Sixths
     */
-    .#{$namespace}one-sixth         { width: 16.666%; }
-    .#{$namespace}two-sixths        { @extend .#{$namespace}one-third; }
-    .#{$namespace}three-sixths      { @extend .#{$namespace}one-half; }
-    .#{$namespace}four-sixths       { @extend .#{$namespace}two-thirds; }
-    .#{$namespace}five-sixths       { width: 83.333%; }
+    .u-#{$namespace}one-sixth         { width: 16.666%; }
+    .u-#{$namespace}two-sixths        { @extend .u-#{$namespace}one-third; }
+    .u-#{$namespace}three-sixths      { @extend .u-#{$namespace}one-half; }
+    .u-#{$namespace}four-sixths       { @extend .u-#{$namespace}two-thirds; }
+    .u-#{$namespace}five-sixths       { width: 83.333%; }
 
 
     /**
     * Eighths
     */
-    .#{$namespace}one-eighth        { width: 12.5%; }
-    .#{$namespace}two-eighths       { @extend .#{$namespace}one-quarter; }
-    .#{$namespace}three-eighths     { width: 37.5%; }
-    .#{$namespace}four-eighths      { @extend .#{$namespace}one-half; }
-    .#{$namespace}five-eighths      { width: 62.5%; }
-    .#{$namespace}six-eighths       { @extend .#{$namespace}three-quarters; }
-    .#{$namespace}seven-eighths     { width: 87.5%; }
+    .u-#{$namespace}one-eighth        { width: 12.5%; }
+    .u-#{$namespace}two-eighths       { @extend .u-#{$namespace}one-quarter; }
+    .u-#{$namespace}three-eighths     { width: 37.5%; }
+    .u-#{$namespace}four-eighths      { @extend .u-#{$namespace}one-half; }
+    .u-#{$namespace}five-eighths      { width: 62.5%; }
+    .u-#{$namespace}six-eighths       { @extend .u-#{$namespace}three-quarters; }
+    .u-#{$namespace}seven-eighths     { width: 87.5%; }
 
 
     /**
     * Tenths
     */
-    .#{$namespace}one-tenth         { width: 10%; }
-    .#{$namespace}two-tenths        { @extend .#{$namespace}one-fifth; }
-    .#{$namespace}three-tenths      { width: 30%; }
-    .#{$namespace}four-tenths       { @extend .#{$namespace}two-fifths; }
-    .#{$namespace}five-tenths       { @extend .#{$namespace}one-half; }
-    .#{$namespace}six-tenths        { @extend .#{$namespace}three-fifths; }
-    .#{$namespace}seven-tenths      { width: 70%; }
-    .#{$namespace}eight-tenths      { @extend .#{$namespace}four-fifths; }
-    .#{$namespace}nine-tenths       { width: 90%; }
+    .u-#{$namespace}one-tenth         { width: 10%; }
+    .u-#{$namespace}two-tenths        { @extend .u-#{$namespace}one-fifth; }
+    .u-#{$namespace}three-tenths      { width: 30%; }
+    .u-#{$namespace}four-tenths       { @extend .u-#{$namespace}two-fifths; }
+    .u-#{$namespace}five-tenths       { @extend .u-#{$namespace}one-half; }
+    .u-#{$namespace}six-tenths        { @extend .u-#{$namespace}three-fifths; }
+    .u-#{$namespace}seven-tenths      { width: 70%; }
+    .u-#{$namespace}eight-tenths      { @extend .u-#{$namespace}four-fifths; }
+    .u-#{$namespace}nine-tenths       { width: 90%; }
 
 
     /**
     * Twelfths
     */
-    .#{$namespace}one-twelfth       { width: 8.333%; }
-    .#{$namespace}two-twelfths      { @extend .#{$namespace}one-sixth; }
-    .#{$namespace}three-twelfths    { @extend .#{$namespace}one-quarter; }
-    .#{$namespace}four-twelfths     { @extend .#{$namespace}one-third; }
-    .#{$namespace}five-twelfths     { width: 41.666% }
-    .#{$namespace}six-twelfths      { @extend .#{$namespace}one-half; }
-    .#{$namespace}seven-twelfths    { width: 58.333%; }
-    .#{$namespace}eight-twelfths    { @extend .#{$namespace}two-thirds; }
-    .#{$namespace}nine-twelfths     { @extend .#{$namespace}three-quarters; }
-    .#{$namespace}ten-twelfths      { @extend .#{$namespace}five-sixths; }
-    .#{$namespace}eleven-twelfths   { width: 91.666%; }
+    .u-#{$namespace}one-twelfth       { width: 8.333%; }
+    .u-#{$namespace}two-twelfths      { @extend .u-#{$namespace}one-sixth; }
+    .u-#{$namespace}three-twelfths    { @extend .u-#{$namespace}one-quarter; }
+    .u-#{$namespace}four-twelfths     { @extend .u-#{$namespace}one-third; }
+    .u-#{$namespace}five-twelfths     { width: 41.666% }
+    .u-#{$namespace}six-twelfths      { @extend .u-#{$namespace}one-half; }
+    .u-#{$namespace}seven-twelfths    { width: 58.333%; }
+    .u-#{$namespace}eight-twelfths    { @extend .u-#{$namespace}two-thirds; }
+    .u-#{$namespace}nine-twelfths     { @extend .u-#{$namespace}three-quarters; }
+    .u-#{$namespace}ten-twelfths      { @extend .u-#{$namespace}five-sixths; }
+    .u-#{$namespace}eleven-twelfths   { width: 91.666%; }
 }
 
 
@@ -213,26 +201,25 @@
  *
  * @requires {mixin} rem
  */
-
 @mixin type($type-scale: $base-type-scale) {
     $h4-size: round($base-font-size * $type-scale);
     $h3-size: round($h4-size * $type-scale);
     $h2-size: round($h3-size * $type-scale);
     $h1-size: round($h2-size * $type-scale);
 
-    h1, .h1 {
+    h1, .u-h1 {
         @include rem(font-size, $h1-size);
     }
 
-    h2, .h2 {
+    h2, .u-h2 {
         @include rem(font-size, $h2-size);
     }
 
-    h3, .h3 {
+    h3, .u-h3 {
         @include rem(font-size, $h3-size);
     }
 
-    h4, .h4 {
+    h4, .u-h4 {
         @include rem(font-size, $h4-size);
     }
 }
@@ -249,10 +236,55 @@
  *
  * @param {mixed} $boundary (100%)
  */
-
 @mixin truncate($boundary: 100%){
     max-width: $boundary;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+
+
+
+
+/**
+ * Apply clearfix to an element
+ */
+@mixin clearfix() {
+    /**
+     * Contain floats within an element
+     *
+     * @link http://nicolasgallagher.com/micro-clearfix-hack/
+     *
+     * 1. The space content is one way to avoid an Opera bug when the
+     *    contenteditable attribute is included anywhere else in the document.
+     *    Otherwise it causes space to appear at the top and bottom of elements
+     *    that are clearfixed.
+     * 2. The use of 'table' rather than 'block' is only necessary if using
+     *    ':before' to contain the top-margins of child elements.
+     */
+    &:before,
+    &:after {
+        content: " "; /* 1 */
+        display: table; /* 2 */
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+
+
+
+
+/**
+ * Generate styles for hover and focus in one go
+ */
+@mixin hocus() {
+
+    &:hover,
+    &:focus {
+        @content;
+    }
 }

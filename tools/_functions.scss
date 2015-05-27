@@ -12,7 +12,6 @@
  *
  * @return {integer}
  */
-
 @function strip-unit($value) {
     @return $value / ($value * 0 + 1);
 }
@@ -28,7 +27,6 @@
  *
  * @return {integer}
  */
-
 @function double($value) {
     @return $value * 2;
 }
@@ -44,7 +42,6 @@
  *
  * @return {integer}
  */
-
 @function halve($value) {
     @return $value * .5;
 }
@@ -61,11 +58,25 @@
  *
  * @return {map} A map containing the split values
  */
-
-@function splitrgb($rgb) {
+@function split-into-rgb($rgb) {
     @return (
         "red": red($rgb),
         "green": green($rgb),
         "blue": blue($rgb)
     );
+}
+
+
+
+
+
+/**
+ * Covert a px value to the rem equivalent
+ *
+ * @param {number} $value
+ *
+ * @return {number} The rem equivalent
+ */
+@function rem($value) {
+    @return ($value / $base-font-size) * 1rem;
 }

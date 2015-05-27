@@ -6,27 +6,12 @@
 
 
 /**
- * Hide visually and from screen readers
- */
-
-.hidden,
-%hidden {
-    display: none;
-    visibility: hidden;
-}
-
-
-
-
-
-/**
  * Hide visually, but have it available for screen readers
  *
  * @link h5bp.com/v
  */
-
-.screenreader-text,
-%screenreader-text {
+.u-screenreader-text,
+%u-screenreader-text {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;
@@ -35,4 +20,15 @@
     padding: 0;
     position: absolute;
     width: 1px;
+}
+
+
+
+
+
+/**
+ * Simply adds a bottom margin to an element
+ */
+%u-margin-bottom {
+    @include rem(margin-bottom, $base-spacing-unit);
 }
