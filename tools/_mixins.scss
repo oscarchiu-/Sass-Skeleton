@@ -111,8 +111,8 @@
     /**
     * Thirds
     */
-    .u-#{$namespace}one-third         { width: 33.333%; }
-    .u-#{$namespace}two-thirds        { width: 66.666%; }
+    .u-#{$namespace}one-third         { width: 33.333333%; }
+    .u-#{$namespace}two-thirds        { width: 66.666666%; }
 
 
     /**
@@ -135,11 +135,11 @@
     /**
     * Sixths
     */
-    .u-#{$namespace}one-sixth         { width: 16.666%; }
+    .u-#{$namespace}one-sixth         { width: 16.666666%; }
     .u-#{$namespace}two-sixths        { @extend .u-#{$namespace}one-third; }
     .u-#{$namespace}three-sixths      { @extend .u-#{$namespace}one-half; }
     .u-#{$namespace}four-sixths       { @extend .u-#{$namespace}two-thirds; }
-    .u-#{$namespace}five-sixths       { width: 83.333%; }
+    .u-#{$namespace}five-sixths       { width: 83.333333%; }
 
 
     /**
@@ -171,17 +171,17 @@
     /**
     * Twelfths
     */
-    .u-#{$namespace}one-twelfth       { width: 8.333%; }
+    .u-#{$namespace}one-twelfth       { width: 8.333333%; }
     .u-#{$namespace}two-twelfths      { @extend .u-#{$namespace}one-sixth; }
     .u-#{$namespace}three-twelfths    { @extend .u-#{$namespace}one-quarter; }
     .u-#{$namespace}four-twelfths     { @extend .u-#{$namespace}one-third; }
-    .u-#{$namespace}five-twelfths     { width: 41.666% }
+    .u-#{$namespace}five-twelfths     { width: 41.666666% }
     .u-#{$namespace}six-twelfths      { @extend .u-#{$namespace}one-half; }
-    .u-#{$namespace}seven-twelfths    { width: 58.333%; }
+    .u-#{$namespace}seven-twelfths    { width: 58.333333%; }
     .u-#{$namespace}eight-twelfths    { @extend .u-#{$namespace}two-thirds; }
     .u-#{$namespace}nine-twelfths     { @extend .u-#{$namespace}three-quarters; }
     .u-#{$namespace}ten-twelfths      { @extend .u-#{$namespace}five-sixths; }
-    .u-#{$namespace}eleven-twelfths   { width: 91.666%; }
+    .u-#{$namespace}eleven-twelfths   { width: 91.666666%; }
 }
 
 
